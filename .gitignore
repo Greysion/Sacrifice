@@ -9,7 +9,9 @@
 [Tt]emp/
 [Uu]nityGenerated/
 [Uu][Ii][Ee]lements[Ss]chema/
+
 [Aa]ssets/[Pp]ro[Bb]uilder [Dd]ata/
+[Aa]ssets/[Pp]ro[Bb]uilder [Dd]ata.meta
 
 # file on crash reports
 sysinfo.txt
