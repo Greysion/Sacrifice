@@ -1,0 +1,197 @@
+fileFormatVersion: 2
+guid: 31de169dd2d896940ad2c78b63b81f81
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Dead_01
+    100002: Dead_010
+    100004: Dead_011
+    100006: Dead_012
+    100008: Dead_013
+    100010: Dead_014
+    100012: Dead_015
+    100014: Dead_016
+    100016: Dead_02
+    100018: Dead_03
+    100020: Dead_04
+    100022: Dead_05
+    100024: Dead_06
+    100026: Dead_07
+    100028: Dead_08
+    100030: Dead_09
+    100032: Dead_Bodies
+    100034: Dirt_Pile
+    100036: Junk_Materials
+    100038: Pit_Exit
+    100040: //RootNode
+    100042: The_Pit_Walls
+    400000: Dead_01
+    400002: Dead_010
+    400004: Dead_011
+    400006: Dead_012
+    400008: Dead_013
+    400010: Dead_014
+    400012: Dead_015
+    400014: Dead_016
+    400016: Dead_02
+    400018: Dead_03
+    400020: Dead_04
+    400022: Dead_05
+    400024: Dead_06
+    400026: Dead_07
+    400028: Dead_08
+    400030: Dead_09
+    400032: Dead_Bodies
+    400034: Dirt_Pile
+    400036: Junk_Materials
+    400038: Pit_Exit
+    400040: //RootNode
+    400042: The_Pit_Walls
+    2100000: Stage_Pit_Dead_Bodies_
+    2100002: Stage_Generic_Rust
+    2100004: Stage_Pit_Dirt_Pile_
+    2100006: Stage_Pit_Junk_Materials
+    2100008: Stage_Pit_Walls
+    2300000: Dead_01
+    2300002: Dead_010
+    2300004: Dead_011
+    2300006: Dead_012
+    2300008: Dead_013
+    2300010: Dead_014
+    2300012: Dead_015
+    2300014: Dead_016
+    2300016: Dead_02
+    2300018: Dead_03
+    2300020: Dead_04
+    2300022: Dead_05
+    2300024: Dead_06
+    2300026: Dead_07
+    2300028: Dead_08
+    2300030: Dead_09
+    2300032: Dirt_Pile
+    2300034: Junk_Materials
+    2300036: Pit_Exit
+    2300038: The_Pit_Walls
+    3300000: Dead_01
+    3300002: Dead_010
+    3300004: Dead_011
+    3300006: Dead_012
+    3300008: Dead_013
+    3300010: Dead_014
+    3300012: Dead_015
+    3300014: Dead_016
+    3300016: Dead_02
+    3300018: Dead_03
+    3300020: Dead_04
+    3300022: Dead_05
+    3300024: Dead_06
+    3300026: Dead_07
+    3300028: Dead_08
+    3300030: Dead_09
+    3300032: Dirt_Pile
+    3300034: Junk_Materials
+    3300036: Pit_Exit
+    3300038: The_Pit_Walls
+    4300000: Dead_01
+    4300002: Dead_02
+    4300004: Dead_03
+    4300006: Dead_04
+    4300008: Dead_05
+    4300010: Dead_06
+    4300012: Dead_07
+    4300014: Dead_08
+    4300016: Dead_09
+    4300018: Dead_010
+    4300020: Dead_011
+    4300022: Dead_012
+    4300024: Dead_013
+    4300026: Dead_014
+    4300028: Dead_015
+    4300030: Dead_016
+    4300032: Pit_Exit
+    4300034: Dirt_Pile
+    4300036: Junk_Materials
+    4300038: The_Pit_Walls
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 100
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
