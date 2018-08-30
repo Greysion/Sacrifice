@@ -5,6 +5,7 @@
    Function:		Controls input handling, player statistics, and calling of other functions related to player condition such as shooting.
 // --------------------------------------------------------------------------------------------------------------------------------------------------------- */
 
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Character : MonoBehaviour {
@@ -21,13 +22,19 @@ public class Character : MonoBehaviour {
 
 	private struct PlayerInput {
 
-		public float[] axis;
-		public bool[] keys;
+		public Dictionary<string, float> axis;
+		public Dictionary<string, bool> keys;
 
-		public PlayerInput(int numOfAxis = 0, int numOfKeys = 0) {
+		public void Declaration() {
 
-			axis = new float[numOfAxis];
-			keys = new bool[numOfKeys];
+			axis = new Dictionary<string, float>();
+			keys = new Dictionary<string, bool>();
+
+			axis.Add("Movement", 0f);
+
+			keys.Add("Jump", false);
+			keys.Add("Fall", false);
+			keys.Add("Shoot", false);
 
 		}
 
@@ -37,8 +44,9 @@ public class Character : MonoBehaviour {
 
 	// ---------------------------------------------------------------------------- */
 
-	[SerializeField] private float speed;
 	[SerializeField] private float health;
+	[SerializeField] private float speed;
+	[SerializeField] private float jumpPower;
 
 	/* --------------------------------------------------------------------------------------------------------------------------------------------------------- //
 		Initialisation
@@ -72,22 +80,32 @@ public class Character : MonoBehaviour {
 
 	private void CheckHotkeys() {
 
-		input = new PlayerInput(1, 1);
+		input = new PlayerInput();
+		input.Declaration();
 
 		if (Input.GetKey(KeyCode.D))
-			input.axis[0] += 1f;
+			input.axis["Movement"] += 1f;
 
 		if (Input.GetKey(KeyCode.A))
-			input.axis[0] -= 1f;
+			input.axis["Movement"] -= 1f;
 
-		if (Input.GetKey(KeyCode.Space))
-			input.keys[0] = true;
+		if (Input.GetKeyDown(KeyCode.Space))
+			input.keys["Jump"] = true;
+
+		if (Input.GetKeyUp(KeyCode.Space))
+			input.keys["Fall"] = true;
 
 	}
 
 	private void PassHotkeys() {
 
-		movement.Direction(input.axis[0], speed);
+		movement.Direction(input.axis["Movement"], speed);
+
+		if (input.keys["Jump"] == true)
+			movement.Jump(jumpPower);
+
+		if (input.keys["Fall"] == true)
+			movement.JumpEnd();
 
 	}
 

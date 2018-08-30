@@ -21,6 +21,7 @@ public class CharacterCamera : MonoBehaviour {
 	[HideInInspector] public Vector3 additionalOffset;
 
 	[SerializeField] private float snap;
+	[SerializeField] public bool chaseCamera;
 
 	/* --------------------------------------------------------------------------------------------------------------------------------------------------------- //
 		Initialisation
