@@ -159,11 +159,7 @@ public class CharacterMovement : MonoBehaviour {
 
 	void ApplyToAnimations() {
 
-		Debug.Log(rb.velocity.x);
-
-		float normalisedSpeed = Dragontale.MathFable.Remap(rb.velocity.x, -14, 14, -1, 1);
-
-		visuals.ShowMovement(normalisedSpeed);
+		visuals.ShowMovement(Dragontale.MathFable.Remap(rb.velocity.x, -14, 14, -1, 1));
 
 	}
 
