@@ -9,10 +9,13 @@ public class GameController : MonoBehaviour {
     public GameObject[] stagePoints;
     public GameObject startRoom;
     public Transform initialSpawn;
+    public Transform nextLevelSpawn;
+    public GameObject endRoom;
+    public float boundVal;
 
 	
 	void Start () {
-
+        nextLevelSpawn.gameObject.transform.position = initialSpawn.gameObject.transform.position;
         SpawnStage();
 
 	}
@@ -34,11 +37,16 @@ public class GameController : MonoBehaviour {
         for (int i = 0; i < room; i++)
         {
 
-            GameObject gO = Instantiate(stagePoints[Random.Range(0, stagePoints.Length)], initialSpawn.position + new Vector3(i * stageLength,0f,0f), Quaternion.identity, initialSpawn);
-            
+            GameObject gO = Instantiate(stagePoints[Random.Range(0, stagePoints.Length)], nextLevelSpawn.position + new Vector3(i * stageLength,0f,0f), Quaternion.identity, nextLevelSpawn);
+            boundVal = i;
         }
-       
-     
+        Instantiate(endRoom, nextLevelSpawn.position + new Vector3(boundVal * stageLength, 0f, 0f), Quaternion.identity, nextLevelSpawn);
+        nextLevelSpawn = endRoom.transform;
+    }
 
+
+    public void OnTriggerEnter(Collider other)
+    {
+        
     }
 }
