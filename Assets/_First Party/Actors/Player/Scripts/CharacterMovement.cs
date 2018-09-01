@@ -24,6 +24,8 @@ public class CharacterMovement : MonoBehaviour {
 
 	// ---------------------------------------------------------------------------- */
 
+	[SerializeField] private float maxSpeed;
+
 	private Vector3 moveDirection;
 	private bool isJumping;
 	private bool hasDoubled;
@@ -32,8 +34,8 @@ public class CharacterMovement : MonoBehaviour {
 	[SerializeField] private float gravityJumping;
 
 	/* --------------------------------------------------------------------------------------------------------------------------------------------------------- //
-	Initialisation
-// --------------------------------------------------------------------------------------------------------------------------------------------------------- */
+		Initialisation
+	// --------------------------------------------------------------------------------------------------------------------------------------------------------- */
 
 	private void Awake() {
 
@@ -52,7 +54,7 @@ public class CharacterMovement : MonoBehaviour {
 	private void ComponentGrab() {
 
 		rb = GetComponent<Rigidbody>();
-		col = GetComponent<Collider>() as CapsuleCollider;
+		col = GetComponent<CapsuleCollider>();
 
 		visuals = GetComponent<CharacterVisuals>();
 
@@ -66,10 +68,10 @@ public class CharacterMovement : MonoBehaviour {
 	/// Should always be called first when assigning player movement commands, even if the value is null.
 	/// </summary>
 	/// <param name="direction">The direction (left / right) that the player is moving.</param>
-	/// <param name="speed">The speed at which the player is going to move.</param>
-	public void Direction(float direction = 0f, float speed = 1f) {
+	/// <param name="acceleration">The speed at which the player is going to move.</param>
+	public void Direction(float direction = 0f, float acceleration = 1f) {
 
-		moveDirection = new Vector3(direction * speed, 0f, moveDirection.z);
+		moveDirection = new Vector3(direction * acceleration, 0f, moveDirection.z);
 
 	}
 
@@ -94,7 +96,7 @@ public class CharacterMovement : MonoBehaviour {
 		// Inform the controller that we have started jumping, reset our velocity, and apply our jump force.
 		isJumping = true;
 		rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.y);
-		rb.AddForce(Vector3.up * force, ForceMode.Impulse);
+		rb.AddForce(Vector3.up * force, ForceMode.VelocityChange);
 
 	}
 
@@ -125,8 +127,13 @@ public class CharacterMovement : MonoBehaviour {
 	// Apply new Vector3 to velocity.
 	private void FixedUpdate() {
 
-		rb.AddForce(moveDirection, ForceMode.VelocityChange);
+		//rb.AddForce(moveDirection, ForceMode.);
+		if (rb.velocity.magnitude < maxSpeed) {
+			rb.AddForce(moveDirection*100);
+		}
+
 		ApplyGravityModifier();
+		ApplyToAnimations();
 
 	}
 
@@ -145,6 +152,18 @@ public class CharacterMovement : MonoBehaviour {
 		// If we're currently jumping, standing, or any other scenario.
 		else
 			rb.velocity += Vector3.up * Physics.gravity.y * (gravityJumping - 1) * Time.deltaTime;
+
+	}
+
+	// ---------------------------------------------------------------------------- */
+
+	void ApplyToAnimations() {
+
+		Debug.Log(rb.velocity.x);
+
+		float normalisedSpeed = Dragontale.MathFable.Remap(rb.velocity.x, -14, 14, -1, 1);
+
+		visuals.ShowMovement(normalisedSpeed);
 
 	}
 

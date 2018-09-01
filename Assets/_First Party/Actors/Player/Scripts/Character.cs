@@ -45,7 +45,7 @@ public class Character : MonoBehaviour {
 	// ---------------------------------------------------------------------------- */
 
 	[SerializeField] private float health;
-	[SerializeField] private float speed;
+	[SerializeField] private float acceleration;
 	[SerializeField] private float jumpPower;
 
 	/* --------------------------------------------------------------------------------------------------------------------------------------------------------- //
@@ -99,7 +99,7 @@ public class Character : MonoBehaviour {
 
 	private void PassHotkeys() {
 
-		movement.Direction(input.axis["Movement"], speed);
+		movement.Direction(input.axis["Movement"], acceleration);
 
 		if (input.keys["Jump"] == true)
 			movement.Jump(jumpPower);
