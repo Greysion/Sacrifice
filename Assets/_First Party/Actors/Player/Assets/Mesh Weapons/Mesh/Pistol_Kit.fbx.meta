@@ -76,7 +76,12 @@ ModelImporter:
     4300022: Magazine_Drum
     4300024: Handle_Grip
     4300026: Sights
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pistol_Kit_
+    second: {fileID: 2100000, guid: 4c85d59b552d7de41ae104cf0c01ce9f, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
