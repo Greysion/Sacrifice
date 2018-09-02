@@ -109,12 +109,23 @@ public class CharacterVisuals : MonoBehaviour {
 	/// <param name="target">The target location in world space.</param>
 	public void Aim(Vector3 target) {
 
+		TurnToCursor(target);
+		//LookAtCursor(target);		
+
+	}
+
+	private void TurnToCursor(Vector3 target) {
+
 		aimingLeft = target.x < 0;
 
 		if (aimingLeft)
 			transform.rotation = new Quaternion(0f, 180f, 0f, 0f);
 		else
 			transform.rotation = Quaternion.identity;
+
+	}
+
+	private void LookAtCursor(Vector3 target) {
 
 		foreach (Transform bone in bonesThatLook)
 			bone.LookAt(bone.position + target, Vector3.up);
