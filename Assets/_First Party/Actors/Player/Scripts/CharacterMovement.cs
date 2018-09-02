@@ -5,6 +5,7 @@
    Function:		Responsibility over all movement mechanics within the player controller.
 // --------------------------------------------------------------------------------------------------------------------------------------------------------- */
 
+using System.Collections;
 using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour {
@@ -21,6 +22,8 @@ public class CharacterMovement : MonoBehaviour {
 	// ---------------------------------------------------------------------------- */
 
 	[SerializeField] private LayerMask ground;
+
+	private Coroutine forcedAirborn;
 
 	// ---------------------------------------------------------------------------- */
 
@@ -74,8 +77,8 @@ public class CharacterMovement : MonoBehaviour {
 		if (!Grounded())
 			return;
 
-		moveDirection = new Vector3(direction * acceleration, 0f, moveDirection.z);
 		visuals.Jumping(false);
+		moveDirection = new Vector3(direction * acceleration, 0f, moveDirection.z);		
 
 	}
 
@@ -118,9 +121,11 @@ public class CharacterMovement : MonoBehaviour {
 
 		// Inform the controller that we have started jumping, reset our velocity, and apply our jump force.
 		isJumping = true;
-		visuals.Jumping(true);
-
 		rb.velocity += Vector3.up * force;
+		
+		// Force our animator into a jumping state.
+		visuals.Jumping(true);
+		forcedAirborn = StartCoroutine(ForceAirborn());
 
 	}
 
@@ -136,13 +141,24 @@ public class CharacterMovement : MonoBehaviour {
 
 	// ---------------------------------------------------------------------------- */
 
+	// Make sure we haven't -just- pressed jump before checking if we're grounded or not.
+	private bool Grounded() => forcedAirborn == null ? CheckGround() : false;
+
 	// We're using our own Capsule Collider to check the bounds of our collision detection.
-	private bool Grounded() => Physics.CheckCapsule(
+	private bool CheckGround() => Physics.CheckCapsule(
 		transform.position + col.center + new Vector3(0f, (col.height / 2f), 0f),
 		transform.position + col.center - new Vector3(0f, (col.height / 2f), 0f),
 		col.radius,
 		ground,
 		QueryTriggerInteraction.Ignore);
+
+	// "Invulnerability period" that stops us from triggering "Grounded" for a period after we've jumped.
+	private IEnumerator ForceAirborn() {
+
+		yield return new WaitForSeconds(0.25f);
+		forcedAirborn = null;
+
+	}
 
 	/* --------------------------------------------------------------------------------------------------------------------------------------------------------- //
 		Runtime

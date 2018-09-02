@@ -1405,7 +1405,7 @@ MonoBehaviour:
   weaponDamage: 50
   weaponCooldown: 0.25
   acceleration: 1
-  jumpPower: 10
+  jumpPower: 5
 --- !u!136 &136940225774906292
 CapsuleCollider:
   m_ObjectHideFlags: 1
