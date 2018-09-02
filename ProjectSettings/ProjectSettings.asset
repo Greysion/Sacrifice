@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: BetterThanYou
-  productName: Sacrifice
+  productName: I, Human
   defaultCursor: {fileID: 2800000, guid: ba61a12ba4fb3354ab2e2cb3c416732b, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.04, g: 0.04, b: 0.04, a: 1}

@@ -71,7 +71,11 @@ public class CharacterMovement : MonoBehaviour {
 	/// <param name="acceleration">The speed at which the player is going to move.</param>
 	public void Direction(float direction = 0f, float acceleration = 1f) {
 
+		if (!Grounded())
+			return;
+
 		moveDirection = new Vector3(direction * acceleration, 0f, moveDirection.z);
+		visuals.Jumping(false);
 
 	}
 
@@ -116,8 +120,7 @@ public class CharacterMovement : MonoBehaviour {
 		isJumping = true;
 		visuals.Jumping(true);
 
-		rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.y);
-		rb.AddForce(Vector3.up * force, ForceMode.Impulse);
+		rb.velocity += Vector3.up * force;
 
 	}
 
@@ -148,16 +151,10 @@ public class CharacterMovement : MonoBehaviour {
 	// Apply new Vector3 to velocity.
 	private void FixedUpdate() {
 
-		//ApplyGravityModifier();
 		ApplyToAnimations();
 
-		if (!Grounded())
-			return;
-
-		visuals.Jumping(false);
-
 		if (rb.velocity.magnitude < maxSpeed)
-			rb.AddForce(moveDirection*100, ForceMode.Acceleration);	
+			rb.velocity += moveDirection;
 
 	}
 
