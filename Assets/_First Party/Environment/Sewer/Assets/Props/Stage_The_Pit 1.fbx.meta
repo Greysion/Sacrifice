@@ -102,7 +102,17 @@ ModelImporter:
     4300030: Pit_Walls
     4300032: Wooden_Bridge
     4300034: Spawner_Pit
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stage_Generic_Rust
+    second: {fileID: 2100000, guid: 729cf7323a0e5f44dbdc48c7298e5f30, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stage_Pit_Dead_Bodies_
+    second: {fileID: 2100000, guid: 31de169dd2d896940ad2c78b63b81f81, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
