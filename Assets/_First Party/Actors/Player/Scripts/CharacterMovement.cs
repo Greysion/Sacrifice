@@ -74,11 +74,12 @@ public class CharacterMovement : MonoBehaviour {
 	/// <param name="acceleration">The speed at which the player is going to move.</param>
 	public void Direction(float direction = 0f, float acceleration = 1f) {
 
+		moveDirection = new Vector3(direction * acceleration, 0f, moveDirection.z);
+
 		if (!Grounded())
 			return;
 
-		visuals.Jumping(false);
-		moveDirection = new Vector3(direction * acceleration, 0f, moveDirection.z);		
+		visuals.Jumping(false);		
 
 	}
 
