@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class GameController : MonoBehaviour {
 
@@ -11,13 +12,14 @@ public class GameController : MonoBehaviour {
     public Transform initialSpawn;
     public Transform nextLevelSpawn;
     public GameObject endRoom;
+    public NavMeshSurface map;
     public float boundVal;
 
 	
 	void Start () {
         nextLevelSpawn.gameObject.transform.position = initialSpawn.gameObject.transform.position;
         SpawnStage();
-
+        map.BuildNavMesh();
 	}
 	
 	
