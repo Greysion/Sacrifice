@@ -1,14 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy_Runner : Enemy {
 
     public Transform playerPos;
+    public NavMeshAgent agent;
 
 	void Update () {
-       playerPos =  GameObject.Find("Player").GetComponent<Transform>();
+       playerPos =  GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         transform.LookAt(playerPos);
-        transform.Translate(Vector3.forward * speed * Time.deltaTime, Space.Self);
+        agent.SetDestination(playerPos.position);
 	}
+
+
+
+    public void TakeDamage(float damage)
+    {
+
+    }
 }

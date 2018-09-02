@@ -38,15 +38,12 @@ public class GameController : MonoBehaviour {
         {
 
             GameObject gO = Instantiate(stagePoints[Random.Range(0, stagePoints.Length)], nextLevelSpawn.position + new Vector3(i * stageLength,0f,0f), Quaternion.identity, nextLevelSpawn);
-            boundVal = i;
+            boundVal = i + 1f;
         }
         Instantiate(endRoom, nextLevelSpawn.position + new Vector3(boundVal * stageLength, 0f, 0f), Quaternion.identity, nextLevelSpawn);
         nextLevelSpawn = endRoom.transform;
     }
 
 
-    public void OnTriggerEnter(Collider other)
-    {
-        
-    }
+    
 }
