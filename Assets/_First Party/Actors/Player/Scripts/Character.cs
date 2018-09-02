@@ -145,7 +145,7 @@ public class Character : MonoBehaviour {
 		Hotkeys
 	// --------------------------------------------------------------------------------------------------------------------------------------------------------- */
 
-	private void DamagePlayer(float damage) {
+	public void DamagePlayer(float damage) {
 
 		Debug.Log($"The player has taken {damage} Damage.");
 		health -= damage;

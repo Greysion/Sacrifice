@@ -8,7 +8,8 @@ public class newLeve : MonoBehaviour {
 
     public void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+        var player = GameObject.FindObjectOfType<Character>();
+        if(other.gameObject == player)
         {
             gameController.SpawnStage();
         }

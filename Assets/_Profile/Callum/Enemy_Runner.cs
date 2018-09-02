@@ -10,6 +10,7 @@ public class Enemy_Runner : Enemy {
     Animator enemyAnim;
 
 
+
     private void Start()
     {
         enemyAnim = GetComponentInChildren<Animator>();
@@ -28,5 +29,15 @@ public class Enemy_Runner : Enemy {
     public void TakeDamage(float damage)
     {
 
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        var player = GameObject.FindObjectOfType<Character>();
+        if (collision.gameObject == player)
+        {
+            player.DamagePlayer(damage);
+        }
+       
     }
 }
