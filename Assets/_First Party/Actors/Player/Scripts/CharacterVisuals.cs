@@ -32,8 +32,8 @@ public class CharacterVisuals : MonoBehaviour {
 	[SerializeField] private PostProcessVolume postProcessing;
 
 	// ---------------------------------------------------------------------------- //
-	
 
+	private bool aimingLeft;
 
 	/* --------------------------------------------------------------------------------------------------------------------------------------------------------- //
 		Initialisation
@@ -86,6 +86,9 @@ public class CharacterVisuals : MonoBehaviour {
 	/// <param name="move">The player's current movement speed. Please equalise this value between -1 and 1 for Left to Right.</param>
 	public void ShowMovement(float move) {
 
+		if (aimingLeft)
+			move *= -1;
+
 		an.SetFloat("movementSpeed", move);
 
 	}
@@ -106,7 +109,9 @@ public class CharacterVisuals : MonoBehaviour {
 	/// <param name="target">The target location in world space.</param>
 	public void Aim(Vector3 target) {
 
-		if (target.x < 0)
+		aimingLeft = target.x < 0;
+
+		if (aimingLeft)
 			transform.rotation = new Quaternion(0f, 180f, 0f, 0f);
 		else
 			transform.rotation = Quaternion.identity;
