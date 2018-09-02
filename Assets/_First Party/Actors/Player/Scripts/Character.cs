@@ -45,8 +45,13 @@ public class Character : MonoBehaviour {
 	// ---------------------------------------------------------------------------- */
 
 	[SerializeField] private float health;
+	[SerializeField] private float weaponDamage;
+	[SerializeField] private float weaponCooldown;
+
 	[SerializeField] private float acceleration;
 	[SerializeField] private float jumpPower;
+
+	private float maxHealth;
 
 	/* --------------------------------------------------------------------------------------------------------------------------------------------------------- //
 		Initialisation
@@ -54,13 +59,13 @@ public class Character : MonoBehaviour {
 
 	private void Awake() {
 
-		ComponentGrab();
+		ComponentGrab();		
 
 	}
 
 	private void Start() {
-		
 
+		Declarations();
 
 	}
 
@@ -74,14 +79,29 @@ public class Character : MonoBehaviour {
 
 	}
 
+	private void Declarations() {
+
+		maxHealth = health;
+
+	}
+
 	/* --------------------------------------------------------------------------------------------------------------------------------------------------------- //
 		Hotkeys
 	// --------------------------------------------------------------------------------------------------------------------------------------------------------- */
 
+	// Initialise a new struct for holding our player Hotkeys.
 	private void CheckHotkeys() {
 
 		input = new PlayerInput();
 		input.Declaration();
+
+		Axis();
+		Keys();		
+
+	}
+
+	// Check keys that tween between -1f and 1f.
+	private void Axis() {
 
 		if (Input.GetKey(KeyCode.D))
 			input.axis["Movement"] += 1f;
@@ -89,14 +109,23 @@ public class Character : MonoBehaviour {
 		if (Input.GetKey(KeyCode.A))
 			input.axis["Movement"] -= 1f;
 
+	}
+
+	// Check boolean input keys that are either true or false.
+	private void Keys() {
+
 		if (Input.GetKeyDown(KeyCode.Space))
 			input.keys["Jump"] = true;
 
 		if (Input.GetKeyUp(KeyCode.Space))
 			input.keys["Fall"] = true;
 
+		if (Input.GetMouseButtonDown(0))
+			input.keys["Shoot"] = true;
+
 	}
 
+	// Pass all relevant inputs to their required components.
 	private void PassHotkeys() {
 
 		movement.Direction(input.axis["Movement"], acceleration);
@@ -106,6 +135,9 @@ public class Character : MonoBehaviour {
 
 		if (input.keys["Fall"] == true)
 			movement.JumpEnd();
+
+		if (input.keys["Shoot"] == true)
+			actions.Shoot(weaponDamage, weaponCooldown);
 
 	}
 
@@ -117,6 +149,8 @@ public class Character : MonoBehaviour {
 
 		Debug.Log($"The player has taken {damage} Damage.");
 		health -= damage;
+
+		visuals.PostProcessingHealth(Dragontale.MathFable.Remap(health, 0f, maxHealth, 1f, 0f));
 
 	}
 

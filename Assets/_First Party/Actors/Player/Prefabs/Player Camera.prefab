@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feeb1aa50178ece43b082ecb8bece106, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 12, z: -20}
+  offset: {x: 0, y: 10, z: -20}
   additionalOffset: {x: 0, y: 0, z: 0}
   snap: 0.1
   chaseCamera: 1

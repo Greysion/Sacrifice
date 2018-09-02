@@ -938,7 +938,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1314655972648340}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -4.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4303820915959720}
@@ -1105,7 +1105,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1745301663231432}
-  m_LocalRotation: {x: 0.02393876, y: -0.06876623, z: 0.000985079, w: 0.9973451}
+  m_LocalRotation: {x: -0.07704889, y: -0.07362993, z: -0.07097958, w: 0.9917681}
   m_LocalPosition: {x: -0, y: 0.2760911, z: 1.7955415e-10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1114,7 +1114,7 @@ Transform:
   - {fileID: 4846496914300288}
   m_Father: {fileID: 4313227279164336}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -9.397, y: -7.8710003, z: -7.5390005}
 --- !u!4 &4679168398504320
 Transform:
   m_ObjectHideFlags: 1
@@ -1320,8 +1320,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.1, y: 3.5, z: 1}
-  m_Center: {x: 0.1, y: 2, z: -0.05}
+  m_Size: {x: 1.1, y: 3, z: 1}
+  m_Center: {x: 0.1, y: 2.3, z: -0.05}
 --- !u!95 &95524525373769532
 Animator:
   serializedVersion: 3
@@ -1379,6 +1379,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 884f936f03714d841ad0995b8610e1ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterVariations:
+  - {fileID: 2100000, guid: b181b0e41fc3a8941b5055b2e24fe8ae, type: 2}
+  - {fileID: 2100000, guid: 5f9225030644883429e7d734858df27f, type: 2}
+  - {fileID: 2100000, guid: 2626ea69745d8584f99b05e27b51da0b, type: 2}
+  - {fileID: 2100000, guid: 1a4e8c68cb1fb0e40b1f16fe78d02d2b, type: 2}
+  grip: {fileID: 4434088956435092}
+  weapons:
+  - {fileID: 1202310294175872, guid: 4a922f98d661fef4998961618f214bf1, type: 2}
+  bonesThatLook:
+  - {fileID: 4977464023630420}
+  postProcessing: {fileID: 0}
 --- !u!114 &114527040756706738
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1391,6 +1402,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  weaponDamage: 50
+  weaponCooldown: 0.25
   acceleration: 0.5
   jumpPower: 400
 --- !u!136 &136940225774906292
@@ -1405,7 +1418,7 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0.1, y: 0.98, z: -0.05}
+  m_Center: {x: 0.1, y: 1, z: -0.05}
 --- !u!137 &137219998081334574
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -1421,7 +1434,7 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 1a4e8c68cb1fb0e40b1f16fe78d02d2b, type: 2}
+  - {fileID: 2100000, guid: 5f9225030644883429e7d734858df27f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

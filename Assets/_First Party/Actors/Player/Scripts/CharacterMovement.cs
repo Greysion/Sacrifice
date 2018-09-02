@@ -148,8 +148,6 @@ public class CharacterMovement : MonoBehaviour {
 	// Apply new Vector3 to velocity.
 	private void FixedUpdate() {
 
-		Debug.Log(Grounded());
-
 		//ApplyGravityModifier();
 		ApplyToAnimations();
 
