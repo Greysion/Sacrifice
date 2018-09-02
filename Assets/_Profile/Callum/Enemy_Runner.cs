@@ -7,11 +7,20 @@ public class Enemy_Runner : Enemy {
 
     public Transform playerPos;
     public NavMeshAgent agent;
+    Animator enemyAnim;
 
-	void Update () {
-       playerPos =  GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        transform.LookAt(playerPos);
+
+    private void Start()
+    {
+        enemyAnim = GetComponentInChildren<Animator>();
+    }
+
+    void Update () {
+       playerPos =  GameObject.FindObjectOfType<Character>().GetComponent<Transform>();
+        
         agent.SetDestination(playerPos.position);
+        enemyAnim.SetFloat("MovementSpeedEnemy", agent.speed);
+        enemyAnim.SetFloat("Health", health);
 	}
 
 

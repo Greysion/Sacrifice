@@ -350,7 +350,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4398784651317358}
-  - component: {fileID: 95621857111655040}
   m_Layer: 0
   m_Name: Character_Enemy
   m_TagString: Untagged
@@ -564,6 +563,7 @@ GameObject:
   - component: {fileID: 65054441081862014}
   - component: {fileID: 195358742980972992}
   - component: {fileID: 114255934924715422}
+  - component: {fileID: 95551015973413782}
   m_Layer: 0
   m_Name: Enemy@Zombie Idle
   m_TagString: Untagged
@@ -738,7 +738,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1893276542911006}
   m_LocalRotation: {x: -0, y: 0.70710576, z: -0, w: 0.7071079}
-  m_LocalPosition: {x: -223.5542, y: 34.187927, z: 119.821335}
+  m_LocalPosition: {x: -221.38, y: 34.02044, z: 119.821335}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4398784651317358}
@@ -1303,14 +1303,14 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 3, z: 1}
   m_Center: {x: 0, y: 1.58, z: 0}
---- !u!95 &95621857111655040
+--- !u!95 &95551015973413782
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1498279207496246}
-  m_Enabled: 0
+  m_GameObject: {fileID: 1893276542911006}
+  m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 49817121c35fd394e8a0f9a6e9ee8ae5, type: 3}
   m_Controller: {fileID: 9100000, guid: 5e488828c89d0474eb1be014513b71f5, type: 2}
   m_CullingMode: 1
@@ -1333,7 +1333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
-  speed: 2
+  speed: 5
   damage: 1
   playerPos: {fileID: 0}
   agent: {fileID: 195358742980972992}
@@ -1427,11 +1427,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.51
-  m_Speed: 1
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 1
+  m_StoppingDistance: 0.5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
