@@ -135,10 +135,10 @@ public class CharacterMovement : MonoBehaviour {
 
 	// We're using our own Capsule Collider to check the bounds of our collision detection.
 	private bool Grounded() => Physics.CheckCapsule(
-		transform.position + col.center, 
-		transform.position + col.center + new Vector3(0f,-(col.height/4f),0f), 
-		col.radius, 
-		ground, 
+		transform.position + col.center + new Vector3(0f, (col.height / 2f), 0f),
+		transform.position + col.center - new Vector3(0f, (col.height / 2f), 0f),
+		col.radius,
+		ground,
 		QueryTriggerInteraction.Ignore);
 
 	/* --------------------------------------------------------------------------------------------------------------------------------------------------------- //
